@@ -15,5 +15,7 @@ return [
     // TODO add description
     'models_namespace' => 'App',
 
-    'middleware' => ['api', 'guest:api']
+    'middleware' => ['api', 'guest:api'],
+
+    'allow_env' => ['local'],
 ];

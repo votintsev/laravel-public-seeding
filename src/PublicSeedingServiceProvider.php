@@ -10,7 +10,11 @@ class PublicSeedingServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        if (! $this->app->environment('production')) {
+        if ($this->app->environment('production')) {
+            return true;
+        }
+
+        if ($this->app->environment(config('public-seeding.allow_env', ['local']))) {
 
             $this->publishes([
                 __DIR__.'/config/public-seeding.php' => config_path('public-seeding.php'),
